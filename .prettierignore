@@ -1,0 +1,30 @@
+# Add files here to ignore them from prettier formatting
+/.nx/cache
+/.nx/workspace-data
+.nx/self-healing
+
+out/
+dist/
+build/
+public/
+
+node_modules/
+
+coverage/
+
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+.DS_Store
+
+# AI agent config (managed by Nx)
+/.agents/
+/.claude/
+/.codex/
+/.cursor/
+/.gemini/
+/.opencode/
+/.github/agents/
+/.github/prompts/
+/.github/skills/
