@@ -8,6 +8,10 @@ export default defineConfig(() => ({
   server: {
     port: 4200,
     host: 'localhost',
+    // /api 요청은 NestJS api 서버(apps/api)로 넘긴다.
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
   },
   preview: {
     port: 4300,
