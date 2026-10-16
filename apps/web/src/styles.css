@@ -27,6 +27,7 @@ body {
 }
 
 .button {
+  box-sizing: border-box;
   display: block;
   width: calc(100% - 48px);
   margin: 24px auto 0;
@@ -37,7 +38,35 @@ body {
   color: #fff;
   font-size: 16px;
   font-weight: 600;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 16px;
+  margin: 0 24px;
+}
+
+.details dt {
+  color: #6b7684;
+}
+
+.details dd {
+  margin: 0;
+  text-align: right;
+  word-break: break-all;
+}
+
+details {
+  margin: 24px 24px 0;
+}
+
+pre {
+  overflow-x: auto;
+  font-size: 12px;
 }
 
 .button:disabled {
