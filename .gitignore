@@ -52,6 +52,11 @@ Thumbs.db
 vite.config.*.timestamp*
 vitest.config.*.timestamp*
 
+# 환경 변수 (시크릿 키 등). 예시는 .env.example로 커밋
+.env
+.env.*
+!.env.example
+
 # Expo
 node_modules/
 .expo/
