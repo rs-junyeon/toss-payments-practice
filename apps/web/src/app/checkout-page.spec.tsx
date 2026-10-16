@@ -65,6 +65,21 @@ describe('CheckoutPage', () => {
     });
   });
 
+  it('결제를 다시 요청하면 이전 에러 메시지를 지운다', async () => {
+    fetchMock.mockResolvedValue(new Response(JSON.stringify(order), { status: 201 }));
+    widgets.requestPayment
+      .mockRejectedValueOnce(new Error('카드 결제 정보를 선택해주세요.'))
+      .mockReturnValueOnce(new Promise(() => undefined));
+    render(<CheckoutPage />);
+    await waitFor(() => expect(payButton().disabled).toBe(false));
+
+    fireEvent.click(payButton());
+    expect((await screen.findByRole('alert')).textContent).toBe('카드 결제 정보를 선택해주세요.');
+
+    fireEvent.click(payButton());
+    await waitFor(() => expect(screen.queryByRole('alert')).toBeNull());
+  });
+
   it('주문 생성에 실패하면 에러를 보여주고 결제 버튼을 막는다', async () => {
     fetchMock.mockResolvedValue(new Response('{}', { status: 500 }));
 

@@ -61,6 +61,7 @@ export function CheckoutPage() {
 
   async function requestPayment() {
     if (!widgets || !order) return;
+    setError(null);
 
     try {
       // 인증이 끝나면 successUrl 또는 failUrl로 리다이렉트된다.
